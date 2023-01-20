@@ -34,13 +34,14 @@ jobs:
           # env
           # tree /opt/hostedtoolcache/
           mkdir -p some/folder
-          echo "test" > some/folder/myfile.txt
+          echo "test1" > some/folder/myfile
+          echo "test2" > some/folder/myfile.txt
 
-      - name: Upload binary
+      - name: Upload test files
         uses: actions/upload-artifact@v2
         with:
           name: helloworld-${{ matrix.os }}
-          path: some/folder/myfile.?t?x?t?
+          path: some/folder/myfile????
 
       # - name: Windows System Information
       #   if: matrix.os == 'windows-latest'
