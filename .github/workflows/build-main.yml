@@ -40,7 +40,8 @@ jobs:
           set -x
           java --version
           env
-          find / -type d -name hostedtoolcache -exec ls -lR "{}" \;
+          # find / -type d -name hostedtoolcache -exec ls -lR "{}" \;
+          ls -l /
         shell: bash
 
       - name: MacOS System Information
