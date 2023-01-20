@@ -1,0 +1,51 @@
+name: Build main
+
+on:
+  push:
+    branches: 'main'
+
+jobs:
+  build-and-test:
+    name: ${{ matrix.os }} build
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: true
+      matrix:
+        os: [macos-latest, windows-latest, ubuntu-latest]
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup JDK
+        uses: graalvm/setup-graalvm@v1
+        with:
+          version: '22.3.0'
+          java-version: '17'
+          components: 'native-image,js'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          native-image-job-reports: 'true'
+
+      - name: Linux System Information
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          set -x
+          java --version
+          env
+          tree /opt/hostedtoolcache/
+          ls -lR /opt/hostedtoolcache/
+
+      - name: Windows System Information
+        if: matrix.os == 'windows-latest'
+        run: |
+          set -x
+          java --version
+          env
+
+      - name: MacOS System Information
+        if: matrix.os == 'macos-latest'
+        run: |
+          set -x
+          java --version
+          env
+
