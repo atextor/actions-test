@@ -33,7 +33,6 @@ jobs:
           java --version
           env
           tree /opt/hostedtoolcache/
-          ls -lR /opt/hostedtoolcache/
 
       - name: Windows System Information
         if: matrix.os == 'windows-latest'
@@ -41,6 +40,8 @@ jobs:
           set -x
           java --version
           env
+          tree /opt/hostedtoolcache/
+        shell: bash
 
       - name: MacOS System Information
         if: matrix.os == 'macos-latest'
@@ -48,4 +49,5 @@ jobs:
           set -x
           java --version
           env
+          tree /opt/hostedtoolcache/
 
