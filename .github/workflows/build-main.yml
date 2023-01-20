@@ -49,5 +49,5 @@ jobs:
           set -x
           java --version
           env
-          tree /opt/hostedtoolcache/
+          ls -lR /opt/hostedtoolcache/
 
