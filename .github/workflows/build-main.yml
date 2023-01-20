@@ -11,7 +11,8 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-latest]
+        # os: [macos-latest, windows-latest, ubuntu-latest]
+        os: [ubuntu-latest]
 
     steps:
       - name: Checkout repository
@@ -41,7 +42,10 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: helloworld-${{ matrix.os }}
-          path: some/folder/myfile????
+          path: |
+            some/folder/myfile
+            some/folder/myfile.txt
+            some/folder/myfile.foo
 
       # - name: Windows System Information
       #   if: matrix.os == 'windows-latest'
