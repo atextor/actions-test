@@ -31,24 +31,32 @@ jobs:
         run: |
           set -x
           java --version
-          env
-          tree /opt/hostedtoolcache/
+          # env
+          # tree /opt/hostedtoolcache/
+          mkdir -p some/folder
+          echo "test" > some/folder/myfile.txt
 
-      - name: Windows System Information
-        if: matrix.os == 'windows-latest'
-        run: |
-          set -x
-          java --version
-          env
-          # find / -type d -name hostedtoolcache -exec ls -lR "{}" \;
-          ls -l /
-        shell: bash
+      - name: Upload binary
+        uses: actions/upload-artifact@v2
+        with:
+          name: helloworld-${{ matrix.os }}
+          path: some/folder/myfile.?t?x?t?
 
-      - name: MacOS System Information
-        if: matrix.os == 'macos-latest'
-        run: |
-          set -x
-          java --version
-          env
-          ls -lR /Users/runner/hostedtoolcache
+      # - name: Windows System Information
+      #   if: matrix.os == 'windows-latest'
+      #   run: |
+      #     set -x
+      #     java --version
+      #     env
+      #     # find / -type d -name hostedtoolcache -exec ls -lR "{}" \;
+      #     ls -l /
+      #   shell: bash
+
+      # - name: MacOS System Information
+      #   if: matrix.os == 'macos-latest'
+      #   run: |
+      #     set -x
+      #     java --version
+      #     env
+      #     ls -lR /Users/runner/hostedtoolcache
 
