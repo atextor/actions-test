@@ -47,15 +47,16 @@ jobs:
             some/folder/myfile.txt
             some/folder/myfile.foo
 
-      # - name: Windows System Information
-      #   if: matrix.os == 'windows-latest'
-      #   run: |
-      #     set -x
-      #     java --version
-      #     env
+      - name: Windows System Information
+        if: matrix.os == 'windows-latest'
+        run: |
+          set -x
+          java --version
+          env
       #     # find / -type d -name hostedtoolcache -exec ls -lR "{}" \;
-      #     ls -l /
-      #   shell: bash
+          ls -l /
+          which native-image
+        shell: bash
 
       # - name: MacOS System Information
       #   if: matrix.os == 'macos-latest'
