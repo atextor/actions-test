@@ -55,7 +55,7 @@ jobs:
           java --version
           env
           ls -l /
-          which native-image
+          which native-image.exe
         shell: bash
 
       # - name: MacOS System Information
