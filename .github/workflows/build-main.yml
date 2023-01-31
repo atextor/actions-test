@@ -12,7 +12,8 @@ jobs:
       fail-fast: true
       matrix:
         # os: [macos-latest, windows-latest, ubuntu-latest]
-        os: [ubuntu-latest]
+        # os: [ubuntu-latest]
+        os: [windows-latest]
 
     steps:
       - name: Checkout repository
