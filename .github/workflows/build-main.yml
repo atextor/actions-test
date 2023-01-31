@@ -54,7 +54,8 @@ jobs:
           set -x
           java --version
           env
-          ls -l /c/hostedtoolcache/windows/graalvm-ce-java17-windows/22.3.0/x64/graalvm-ce-java17-22.3.0/bin
+          mvn compile
+          java -cp target/classes org.example.Main
         shell: bash
 
       # - name: MacOS System Information
