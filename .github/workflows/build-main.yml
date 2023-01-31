@@ -54,7 +54,7 @@ jobs:
           set -x
           java --version
           env
-          ls -l /mingw64/bin:/usr/bin:/c/Users/runneradmin/bin:/c/hostedtoolcache/windows/graalvm-ce-java17-windows/22.3.0/x64/graalvm-ce-java17-22.3.0/bin
+          ls -l /c/hostedtoolcache/windows/graalvm-ce-java17-windows/22.3.0/x64/graalvm-ce-java17-22.3.0/bin
         shell: bash
 
       # - name: MacOS System Information
