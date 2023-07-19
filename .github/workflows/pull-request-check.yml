@@ -1,0 +1,19 @@
+name: Check Pull Request
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - 'foo/**'
+
+jobs:
+  build-linux:
+    name: Linux build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build
+        run: |
+          echo "Run the build"

@@ -34,7 +34,7 @@ jobs:
           popd
 
       - name: Upload staging directory and Linux binary
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: linux-artifacts
           path: |
@@ -71,7 +71,7 @@ jobs:
         shell: bash
 
       - name: Upload Windows binary
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: windows-artifacts
           path: |
@@ -133,7 +133,7 @@ jobs:
   #         echo "test2" > some/folder/myfile.txt
 
   #     - name: Upload test files
-  #       uses: actions/upload-artifact@v2
+  #       uses: actions/upload-artifact@v3
   #       with:
   #         name: helloworld-${{ matrix.os }}
   #         path: |
