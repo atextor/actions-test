@@ -12,91 +12,91 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup JDK
-        uses: graalvm/setup-graalvm@v1
-        with:
-          version: '22.3.1'
-          java-version: '17'
-          components: 'native-image,js'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          native-image-job-reports: 'true'
+      # - name: Setup JDK
+      #   uses: graalvm/setup-graalvm@v1
+      #   with:
+      #     version: '22.3.1'
+      #     java-version: '17'
+      #     components: 'native-image,js'
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     native-image-job-reports: 'true'
 
-      - name: Build
-        run: |
-          mkdir -p nexus-staging/de/atextor/test/foo/1.0.0
-          pushd nexus-staging/de/atextor/test/foo/1.0.0
-          touch test-1.0.0{.jar,.jar.md5,.jar.sha1,.pom,.pom.md5,.pom.sha1,-sources.jar,-sources.jar.md5,-sources.jar.sha1}
-          popd
-          mkdir -p foo/target
-          pushd foo/target
-          touch binary
-          echo "built on linux" > foo-1.0.0.jar
-          popd
+      # - name: Build
+      #   run: |
+      #     mkdir -p nexus-staging/de/atextor/test/foo/1.0.0
+      #     pushd nexus-staging/de/atextor/test/foo/1.0.0
+      #     touch test-1.0.0{.jar,.jar.md5,.jar.sha1,.pom,.pom.md5,.pom.sha1,-sources.jar,-sources.jar.md5,-sources.jar.sha1}
+      #     popd
+      #     mkdir -p foo/target
+      #     pushd foo/target
+      #     touch binary
+      #     echo "built on linux" > foo-1.0.0.jar
+      #     popd
 
-      - name: Upload staging directory and Linux binary
-        uses: actions/upload-artifact@v3
-        with:
-          name: linux-artifacts
-          path: |
-            nexus-staging/
-            foo/target/binary
-            foo/target/foo-*.jar
+      # - name: Upload staging directory and Linux binary
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: linux-artifacts
+      #     path: |
+      #       nexus-staging/
+      #       foo/target/binary
+      #       foo/target/foo-*.jar
 
-  build-windows:
-    name: Windows build
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # build-windows:
+  #   name: Windows build
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: Setup JDK
-        uses: graalvm/setup-graalvm@v1
-        with:
-          version: '22.3.1'
-          java-version: '17'
-          components: 'native-image,js'
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          native-image-job-reports: 'true'
+  #     - name: Setup JDK
+  #       uses: graalvm/setup-graalvm@v1
+  #       with:
+  #         version: '22.3.1'
+  #         java-version: '17'
+  #         components: 'native-image,js'
+  #         github-token: ${{ secrets.GITHUB_TOKEN }}
+  #         native-image-job-reports: 'true'
 
-      - name: Build and run tests
-        run: |
-          mkdir -p foo/target
-          pushd foo/target
-          touch {x,y,z}.dll
-          touch binary.exe
-          mkdir lib
-          touch lib/z.conf
-          echo "built on windows" > foo-1.0.0.jar
-          popd
-        shell: bash
+  #     - name: Build and run tests
+  #       run: |
+  #         mkdir -p foo/target
+  #         pushd foo/target
+  #         touch {x,y,z}.dll
+  #         touch binary.exe
+  #         mkdir lib
+  #         touch lib/z.conf
+  #         echo "built on windows" > foo-1.0.0.jar
+  #         popd
+  #       shell: bash
 
-      - name: Upload Windows binary
-        uses: actions/upload-artifact@v3
-        with:
-          name: windows-artifacts
-          path: |
-            foo/target/binary.exe
-            foo/target/*.dll
-            foo/target/lib/
+  #     - name: Upload Windows binary
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: windows-artifacts
+  #         path: |
+  #           foo/target/binary.exe
+  #           foo/target/*.dll
+  #           foo/target/lib/
 
-  release:
-    needs: [build-linux, build-windows]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Fetch Linux Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: linux-artifacts
+  # release:
+  #   needs: [build-linux, build-windows]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Fetch Linux Artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: linux-artifacts
 
-      - name: Fetch Windows Artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: windows-artifacts
+  #     - name: Fetch Windows Artifacts
+  #       uses: actions/download-artifact@v2
+  #       with:
+  #         name: windows-artifacts
 
-      - name: Show current state
-        run: |
-          zip -r binary-windows.zip binary.exe *.dll lib/
-          unzip -l binary-windows.zip
+  #     - name: Show current state
+  #       run: |
+  #         zip -r binary-windows.zip binary.exe *.dll lib/
+  #         unzip -l binary-windows.zip
 
   # build-and-test:
   #   name: ${{ matrix.os }} build
