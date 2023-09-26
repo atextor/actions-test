@@ -53,6 +53,18 @@ jobs:
         run: |
           wmic logicaldisk get size, freespace, caption
 
+      - uses: al-cheb/configure-pagefile-action@v1.3
+        with:
+          minimum-size: 32GB
+          maximum-size: 32GB
+          disk-root: "C:"
+
+      # - uses: al-cheb/configure-pagefile-action@v1.3
+      #   with:
+      #     minimum-size: 16GB
+      #     maximum-size: 16GB
+      #     disk-root: "D:"
+
       # - name: Setup Environment
       #   run: |-
       #     choco install zip --execution-timeout=600
