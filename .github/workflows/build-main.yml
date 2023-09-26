@@ -42,12 +42,40 @@ jobs:
       #       foo/target/binary
       #       foo/target/foo-*.jar
 
-  # build-windows:
-  #   name: Windows build
-  #   runs-on: windows-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
+  build-windows:
+    name: Windows build
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Environment
+        run: |-
+          choco install zip --execution-timeout=600
+          choco install unzip --execution-timeout=600
+          choco install graphviz --execution-timeout=600
+          curl -sL https://get.sdkman.io | bash
+          echo sdkman_auto_answer=true > $HOME/.sdkman/etc/config
+          echo sdkman_auto_selfupdate=true >> $HOME/.sdkman/etc/config
+          source $HOME/.sdkman/bin/sdkman-init.sh
+          sdk update
+          sdk list java
+          sdk install java 17.0.8-graal || true
+          sdk use java 17.0.8-graal
+          echo Path settings: $PATH
+          export PATH=$HOME/.sdkman/candidates/java/current/lib/installer/bin:$PATH
+          export GRAALVM_HOME=$HOME/.sdkman/candidates/java/17.0.8-graal
+          find $HOME/.sdkman -type f -name '*gu*'
+          gu install native-image
+          find $HOME/.sdkman -type f -name '*native-image*'
+          unset _JAVA_OPTIONS
+          export PATH=$HOME/.sdkman/candidates/java/current/lib/svm/bin:$PATH
+          which native-image
+          which java
+          java -version
+          file `which native-image`
+          native-image --version
+          rm -rf .cache
 
   #     - name: Setup JDK
   #       uses: graalvm/setup-graalvm@v1
