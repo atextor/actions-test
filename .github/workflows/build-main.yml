@@ -5,12 +5,28 @@ on:
     branches: 'main'
 
 jobs:
-  # build-linux:
-  #   name: Linux build
-  #   runs-on: ubuntu-20.04
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
+  build-linux:
+    name: Linux build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          server-id: ossrh
+          server-username: OSSRH_USERNAME
+          server-password: OSSRH_TOKEN
+          overwrite-settings: false
+
+      - name: Setup Environment
+        run: |-
+          echo Path settings: $PATH
+          which java
+          java -version
 
       # - name: Setup JDK
       #   uses: graalvm/setup-graalvm@v1
@@ -42,22 +58,22 @@ jobs:
       #       foo/target/binary
       #       foo/target/foo-*.jar
 
-  build-windows:
-    name: Windows build
-    runs-on: windows-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+  # build-windows:
+  #   name: Windows build
+  #   runs-on: windows-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
 
-      - name: List free disk space
-        run: |
-          wmic logicaldisk get size, freespace, caption
+  #     - name: List free disk space
+  #       run: |
+  #         wmic logicaldisk get size, freespace, caption
 
-      - uses: al-cheb/configure-pagefile-action@v1.3
-        with:
-          minimum-size: 32GB
-          maximum-size: 32GB
-          disk-root: "C:"
+  #     - uses: al-cheb/configure-pagefile-action@v1.3
+  #       with:
+  #         minimum-size: 32GB
+  #         maximum-size: 32GB
+  #         disk-root: "C:"
 
       # - uses: al-cheb/configure-pagefile-action@v1.3
       #   with:
