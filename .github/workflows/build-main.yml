@@ -4,9 +4,10 @@ on:
   push:
     branches: 'main'
 
+env:
+  FOO: "test"
+
 jobs:
-  env:
-    FOO: "test"
   # build-linux:
   #   name: Linux build
   #   runs-on: ubuntu-20.04
