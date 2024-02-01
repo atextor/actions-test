@@ -5,6 +5,8 @@ on:
     branches: 'main'
 
 jobs:
+  env:
+    FOO: "test"
   # build-linux:
   #   name: Linux build
   #   runs-on: ubuntu-20.04
@@ -69,6 +71,7 @@ jobs:
         run: |
           echo "uname -m: " $(uname -m)
           echo "uname -o: " $(uname -o)
+          echo "env variable: ${{ env.FOO }}"
         shell: bash
 
   #     - name: List free disk space
