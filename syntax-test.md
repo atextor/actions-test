@@ -25,11 +25,11 @@ $$
 # test 3
 
 ```math
+\begin{array}{l}
 Validation~errors~were~found:\\
-x~\\
-\mathtt{> Syntax~error:}
+\mathtt{> Syntax~error:}\\
+\end{array}
 ```
-
 ```math
 \begin{array}{rcl}
 ~ & \mid & ~\\
