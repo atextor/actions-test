@@ -1,5 +1,6 @@
-$\color{Green}{\textsf{Normal, colored text}}$<br>
-<br>
+# test 1
+
+$\color{Green}{\textsf{Normal, colored text}}$<br> <br>
 $\color{Green}{\texttt{Normal, colored text}}$<br>
 <br>
 $\small\texttt{Validation errors were found:}$<br>
@@ -14,20 +15,22 @@ $\small\texttt{     |    {\color{orange}^ Triples not terminated by DOT}}$<br>
 $\small\texttt{  18 |    samm:operations () .}$<br>
 $\small\texttt{     |}$<br>
 
+# test 2
 
 $$
 \smaller Validation errors were found: \\
 \smaller \texttt{> Syntax error}
 $$
 
+# test 3
 
 ```math
-Validation errors were found: \\
-\\
-\texttt{> Syntax error:}
+Validation~errors~were~found:\\
+~\\
+\texttt{> Syntax error:}\\
 \begin{array}{rcl}
-~ & \mid & ~ \\
-15 & \mid & :InvalidSyntax a samm:Aspect ;
-16 & \mid &    samm:preferredName "Test Aspect"@en ;
+~ & \mid & ~\\
+15 & \mid & \texttt{:InvalidSyntax a samm:Aspect ;}\\
+16 & \mid & \texttt{   samm:preferredName "Test Aspect"@en ;}\\
 \end{array}
 ```
