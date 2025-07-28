@@ -38,3 +38,19 @@ Validation~errors~were~found:\\
 \texttt{16} & \mid & \texttt{\;\;\;samm:preferredName\;"Test\;Aspect"@en\;;}\\
 \end{array}
 ```
+
+# test 4
+
+<pre>
+Validation errors were found:
+
+> Syntax error:
+  ---> <b>Error at line 17 column 3</b> in file:/home/me/models/org.eclipse.esmf.test/1.0.0/InvalidSyntax.ttl
+     |
+  15 | :InvalidSyntax a samm:Aspect ;
+  16 |    samm:preferredName "Test Aspect"@en
+  17 |    samm:properties () ;
+     |    <b>^ Triples not terminated by DOT</b>
+  18 |    samm:operations () .
+     |}
+</pre>
