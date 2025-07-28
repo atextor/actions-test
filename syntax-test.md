@@ -34,7 +34,7 @@ Validation~errors~were~found:\\
 ~ & ~ & \texttt{> Syntax~error:}\\
 ~ & ~ & \texttt{{\color{orange}--->\;Error\;at\;line\;17\;column\;3}\;in\;{\color{blue}file:/home/me/models/org.eclipse.esmf.test/1.0.0/InvalidSyntax.ttl}}
 ~ & \mid & ~\\
-\texttt{15} & \mid & \texttt{\colon InvalidSyntax\;a\;samm\colon Aspect\;;}\\
-\texttt{16} & \mid & \texttt{\;\;\;samm\colon preferredName\;"Test\;Aspect"@en\;;}\\
+\texttt{15} & \mid & \texttt{:InvalidSyntax\;a\;samm:Aspect\;;}\\
+\texttt{16} & \mid & \texttt{\;\;\;samm:preferredName\;"Test\;Aspect"@en\;;}\\
 \end{array}
 ```
