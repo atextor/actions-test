@@ -25,9 +25,10 @@ $$
 # test 3
 
 ```math
-Validation~errors~were~found:\\~\\
-\mathtt{> Syntax~error:}\\
+Validation~errors~were~found:\\  
+\mathtt{> Syntax~error:}
 ```
+
 ```math
 \begin{array}{rcl}
 ~ & \mid & ~\\
