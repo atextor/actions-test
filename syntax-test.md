@@ -25,7 +25,7 @@ $$
 # test 3
 
 ```math
-Validation~errors~were~found:\\\\
+Validation~errors~were~found:\\  
 \mathtt{> Syntax~error:}\\
 ```
 ```math
