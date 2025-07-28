@@ -31,10 +31,10 @@ Validation~errors~were~found:\\
 ```
 ```math
 \begin{array}{rcl}
-~ & ~ & \mathtt{> Syntax~error:}\\
-~ & ~ & \mathtt{---> {\color{orange}---> Error at line 17 column 3} in {\color{blue}file:/home/me/models/org.eclipse.esmf.test/1.0.0/InvalidSyntax.ttl}}
+~ & ~ & \texttt{> Syntax~error:}\\
+~ & ~ & \texttt{{\color{orange}--->\;Error\;at\;line\;17\;column\;3}\;in\;{\color{blue}file:/home/me/models/org.eclipse.esmf.test/1.0.0/InvalidSyntax.ttl}}
 ~ & \mid & ~\\
-\mathtt{15} & \mid & \mathtt{\colon InvalidSyntax~a~samm\colon Aspect~;}\\
-\mathtt{16} & \mid & \mathtt{~~~samm\colon preferredName~"Test~Aspect"@en~;}\\
+\texttt{15} & \mid & \texttt{\colon InvalidSyntax\;a\;samm\colon Aspect\;;}\\
+\texttt{16} & \mid & \texttt{\;\;\;samm\colon preferredName\;"Test\;Aspect"@en\;;}\\
 \end{array}
 ```
