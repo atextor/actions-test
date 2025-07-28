@@ -28,6 +28,7 @@ $$
 Validation~errors~were~found:\\~\\
 ~\\~\\
 \texttt{> Syntax error:}\\~\\
+~\\
 \begin{array}{rcl}
 ~ & \mid & ~\\
 15 & \mid & \texttt{:InvalidSyntax a samm:Aspect ;}\\
