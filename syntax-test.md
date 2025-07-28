@@ -25,14 +25,13 @@ $$
 # test 3
 
 ```math
-Validation~errors~were~found:\\  
-~\\  
-\mathtt{> Syntax error:}\\  
+Validation~errors~were~found:\\\\
+\mathtt{> Syntax~error:}\\
 ```
 ```math
 \begin{array}{rcl}
-~ & \mid & ~\\  
-\mathtt{15} & \mid & \mathtt{:InvalidSyntax a samm:Aspect ;}\\  
-\mathtt{16} & \mid & \mathtt{   samm:preferredName "Test Aspect"@en ;}\\  
-\end{array}  
+~ & \mid & ~\\
+\mathtt{15} & \mid & \mathtt{:InvalidSyntax a samm:Aspect ;}\\
+\mathtt{16} & \mid & \mathtt{   samm:preferredName "Test Aspect"@en ;}\\
+\end{array}
 ```
