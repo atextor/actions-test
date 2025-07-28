@@ -26,7 +26,7 @@ $$
 
 ```math
 Validation~errors~were~found:\\
-~\\
+x~\\
 \mathtt{> Syntax~error:}
 ```
 
